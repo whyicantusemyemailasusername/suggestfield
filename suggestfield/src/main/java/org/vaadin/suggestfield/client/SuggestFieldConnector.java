@@ -82,7 +82,8 @@ public class SuggestFieldConnector extends AbstractFieldConnector implements
 			getWidget().setCurrentSuggestion(null);			
 		}
 		getWidget().tokenMode = getState().tokenMode;
-		
+		getWidget().acceptOnTab = getState().acceptOnTab;
+		getWidget().acceptOnBlur = getState().acceptOnBlur;
 	}
 
 	@Override
@@ -110,12 +111,6 @@ public class SuggestFieldConnector extends AbstractFieldConnector implements
 		}
 	}
 
-//	@Override
-//	public void setCurrentSuggusetion(SuggestFieldSuggestion suggestion) {
-//		getWidget().setCurrentSuggestion(suggestion);
-//
-//	}
-
 	@Override
 	public void onBlur(BlurEvent event) {
 		getRpcProxy(FocusAndBlurServerRpc.class).blur();
@@ -129,7 +124,7 @@ public class SuggestFieldConnector extends AbstractFieldConnector implements
 	}
 
 	@Override
-	public void setSuggusetion(List<SuggestFieldSuggestion> suggestions) {
+	public void setSuggestion(List<SuggestFieldSuggestion> suggestions) {
 		getWidget().setSuggestions(suggestions);
 
 	}

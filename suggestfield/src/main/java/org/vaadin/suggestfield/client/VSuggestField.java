@@ -59,7 +59,7 @@ public class VSuggestField extends Composite implements HasText, Focusable,
 	/**
 	 * The callback used when a user selects a {@link Suggestion}.
 	 */
-	public static interface SuggestionCallback {
+	public interface SuggestionCallback {
 		void onSuggestionSelected(Suggestion suggestion);
 	}
 
@@ -93,7 +93,9 @@ public class VSuggestField extends Composite implements HasText, Focusable,
 	public int[] modifierKeys = new int[] {};
 	
 	public boolean tokenMode = false;
-	
+	public boolean acceptOnTab = true;
+	public boolean acceptOnBlur = true;
+
 	/*
 	 * Callback for selecting suggestion
 	 */
@@ -195,21 +197,10 @@ public class VSuggestField extends Composite implements HasText, Focusable,
 					moveSelectionUp();
 					break;
 				case KeyCodes.KEY_ENTER:
-				case KeyCodes.KEY_TAB:
 					handleOnKeyEvent();
-//					Suggestion suggestion = getCurrentSelection();
-//					if (suggestion == null) {
-//						/*
-//						 * Allow for new items
-//						 */
-//						if (allowNewItem) {
-//							handleNewSuggestion();
-//						} 
-//						hideSuggestions();
-//						
-//					} else {
-//						setNewSelection(suggestion);
-//					}
+					break;
+				case KeyCodes.KEY_TAB:
+					handleLostFocus(acceptOnTab);
 					break;
 				}
 			}
@@ -240,7 +231,9 @@ public class VSuggestField extends Composite implements HasText, Focusable,
 
 			@Override
 			public void onBlur(BlurEvent event) {
-				resetText();
+				handleLostFocus(acceptOnBlur);
+				event.preventDefault();
+				event.stopPropagation();
 			}
 		}
 
@@ -249,6 +242,15 @@ public class VSuggestField extends Composite implements HasText, Focusable,
 		box.addKeyUpHandler(events);
 		box.addValueChangeHandler(events);
 		box.addBlurHandler(events);
+	}
+
+	private void handleLostFocus(boolean acceptChanges) {
+		if (acceptChanges) {
+			handleOnKeyEvent();
+		} else {
+			hideSuggestions();
+			resetText();
+		}
 	}
 	
 	private void handleOnKeyEvent() {

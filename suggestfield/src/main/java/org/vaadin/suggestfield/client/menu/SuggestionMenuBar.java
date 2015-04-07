@@ -24,14 +24,14 @@ public class SuggestionMenuBar extends Widget {
 	private static final String STYLENAME_DEFAULT = "gwt-MenuBar";
 
 	/**
-	 * List of all {@link SuggestionSuggestionMenuItem}s and
-	 * {@link SuggestionSuggestionMenuItemSeparator}s.
+	 * List of all {@link SuggestionMenuItem}s and
+	 * {@link SuggestionMenuItemSeparator}s.
 	 */
 	private ArrayList<UIObject> allItems = new ArrayList<UIObject>();
 
 	/**
 	 * List of {@link SuggestionMenuItem}s, not including
-	 * {@link SuggestionSuggestionMenuItemSeparator}s.
+	 * {@link SuggestionMenuItemSeparator}s.
 	 */
 	private ArrayList<SuggestionMenuItem> items = new ArrayList<SuggestionMenuItem>();
 

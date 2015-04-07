@@ -14,4 +14,6 @@ public class SuggestFieldState extends AbstractFieldState {
 	public int keyCode = -1;
 	public int[] modifierKeys = new int[] {};
 	public boolean tokenMode = false;
+	public boolean acceptOnBlur = true;
+	public boolean acceptOnTab = true;
 }

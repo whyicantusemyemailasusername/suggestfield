@@ -4,9 +4,9 @@ import com.vaadin.shared.communication.ServerRpc;
 
 public interface SuggestFieldServerRpc extends ServerRpc {
 	
-	public void searchSuggestions(String query);
+	void searchSuggestions(String query);
 
-	public void onSuggestionSelected(SuggestFieldSuggestion suggestion);
+	void onSuggestionSelected(SuggestFieldSuggestion suggestion);
 	
-	public void addNewSuggestion(String suggestion);
+	void addNewSuggestion(String suggestion);
 }
