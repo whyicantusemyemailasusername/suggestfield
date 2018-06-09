@@ -5,12 +5,12 @@
 	<groupId>org.vaadin</groupId>
 	<artifactId>suggestfield-demo</artifactId>
 	<packaging>war</packaging>
-	<version>0.0.5</version>
+	<version>0.0.6-dev</version>
 	<name>SuggestField Add-on Demo</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<vaadin.version>7.3.10</vaadin.version>
+		<vaadin.version>7.7.13</vaadin.version>
 		<vaadin.plugin.version>${vaadin.version}</vaadin.plugin.version>
 	</properties>
 
@@ -174,6 +174,8 @@
 						<configuration>
 							<!-- if you don't specify any modules, the plugin will find them -->
 						</configuration>
+						<id>compile</id>
+						<phase>compile</phase>
 						<goals>
 							<goal>resources</goal>
 							<goal>update-widgetset</goal>
