@@ -5,12 +5,12 @@
 	<groupId>org.vaadin</groupId>
 	<artifactId>suggestfield</artifactId>
 	<packaging>jar</packaging>
-	<version>0.0.5</version>
+	<version>0.0.6-dev</version>
 	<name>SuggestField Add-on</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<vaadin.version>7.3.10</vaadin.version>
+		<vaadin.version>7.7.13</vaadin.version>
 		<vaadin.plugin.version>${vaadin.version}</vaadin.plugin.version>
 
 		<!-- ZIP Manifest fields -->
